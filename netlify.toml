@@ -1,0 +1,24 @@
+[build]
+  command = "node scripts/build_static.js"
+  publish = "dist"
+  functions = "netlify/functions"
+
+# Redirigir los endpoints de la API a las Netlify Functions.
+# Los censos NO se redirigen: se leen de data/*.json en el cliente.
+[[redirects]]
+  from = "/api/cie9"
+  to = "/.netlify/functions/cie9"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cirugias/*"
+  to = "/.netlify/functions/cirugias/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cirugias"
+  to = "/.netlify/functions/cirugias"
+  status = 200
+  force = true

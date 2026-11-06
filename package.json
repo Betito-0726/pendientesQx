@@ -1,0 +1,22 @@
+{
+  "name": "pheds-censos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prototipo web: login a PHEDS y despliegue de censos de hospitalizacion y urgencias (Etapa 1).",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/server.js",
+    "demo": "node server/server.js --demo",
+    "demo:capture": "node scripts/capturar_demo.js",
+    "demo:build": "node scripts/construir_demo_recon.js",
+    "build:static": "node scripts/build_static.js",
+    "test": "node test/smoke.js",
+    "test:servicio": "node test/servicio.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^7.0.0"
+  }
+}

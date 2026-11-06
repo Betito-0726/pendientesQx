@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>PHEDS — Panel Clínico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Pantalla de login -->
+  <div id="login" class="screen hidden">
+    <div class="login-card">
+      <div class="brand">PHEDS <span>Panel Clínico</span></div>
+      <p class="sub">Acceso a los censos de hospitalización y urgencias de tu unidad.</p>
+      <form id="loginForm" autocomplete="on">
+        <label>Usuario (matrícula)
+          <input id="fUsuario" name="usuario" inputmode="numeric" autocomplete="username" required />
+        </label>
+        <label>Contraseña
+          <input id="fPass" name="pass" type="password" autocomplete="current-password" required />
+        </label>
+        <button type="submit" id="btnLogin">Entrar</button>
+        <p id="loginMsg" class="msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pantalla principal -->
+  <div id="app" class="screen hidden">
+    <header>
+      <div class="head-top">
+        <div class="brand small">PHEDS <span>Panel Clínico</span></div>
+        <div class="head-actions">
+          <span id="lastUpdate" class="last-update"></span>
+          <button id="btnRefresh" class="icon-btn" title="Actualizar">&#8635;</button>
+          <button id="btnLogout" class="icon-btn" title="Salir">&#128682;</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-view="hospital" role="tab">Hospitalización</button>
+        <button class="tab" data-view="recuperacion" role="tab">Recuperación</button>
+        <button class="tab" data-view="uci" role="tab">UCI</button>
+        <button class="tab" data-view="urgencias" role="tab">Urgencias</button>
+        <button class="tab" data-view="preoperatorios" role="tab">Preoperatorios</button>
+      </div>
+    </header>
+
+    <div class="toolbar" id="toolbar">
+      <input id="search" type="search" placeholder="Buscar: nombre, NSS, diagnóstico…" />
+      <div class="dropdown" id="filtroWrap">
+        <button type="button" class="dropdown-btn" id="filtroBtn" aria-haspopup="listbox" aria-expanded="false" title="Filtrar por servicio">
+          <span id="filtroLabel">Todos</span>
+          <span class="caret">&#9662;</span>
+        </button>
+        <div class="dropdown-menu" id="filtroMenu" role="listbox" hidden></div>
+      </div>
+    </div>
+
+    <div id="summary" class="summary hidden"></div>
+    <main id="lista" class="lista"></main>
+    <div id="empty" class="empty hidden">Sin pacientes.</div>
+    <div id="loading" class="loading hidden"><div class="spinner"></div><span>Cargando censo…</span></div>
+  </div>
+
+  <!-- Modal genérico -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <span id="modalTitle"></span>
+        <button type="button" class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

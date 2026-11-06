@@ -1,0 +1,23 @@
+# Dependencias
+node_modules/
+
+# Credenciales y configuracion local (NUNCA versionar)
+config.local.json
+
+# API key de DeepSeek (secreto)
+API Deepseek.txt
+
+# Datos locales de preoperatorios (datos de pacientes)
+data/
+
+# Reconocimiento / capturas reales (datos de pacientes)
+recon/
+
+# Build estático para Netlify (generado por scripts/build_static.js)
+dist/
+
+# Logs
+*.log
+
+# NOTA: demo/ NO está ignorado: contiene los censos ANONIMIZADOS que el build
+# estático de Netlify necesita (hospital.json, urgencias.json).
